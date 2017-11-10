@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大模式</title>
+</head>
+<body>
+<input type="text" id="text_a">
+<select>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="×">×</option>
+    <option value="÷">÷</option>
+    <option value="%">%</option>
+</select>
+<input type="text" id="text_b">
+<input type="button" name="" value="=" id="btn">
+<input type="text" name="" id="txt_res">
+<script>
+    var math=(function(){
+        var quyu=function a(a,b){
+            return a%b
+        }
+    })();
+    var math=(function(){
+        function Fla(a) {
+            return parseFloat(a)
+        }
+        var jia=function(a,b){
+            return Fla(a)+Fla(b)
+        };
+        var jian=function(a,b){
+            return Fla(a)-Fla(b)
+        };
+        var cheng=function(a,b){
+            return Fla(a)*Fla(b)
+        };
+        var chu=function(a,b){
+            return Fla(a)/Fla(b)
+        };
+        return{
+            jia:jia,
+            jian:jian,
+            cheng:cheng,
+            chu:chu
+        }
+    })();
+    var val = document.querySelector("select");
+    var a = document.querySelector("#text_a");
+    var b = document.querySelector("#text_b");
+    var res = document.querySelector("#txt_res");
+    var btn = document.querySelector("#btn");
+    btn.onclick=function(){
+        var a1=Number(a.value);//Number 转化为数字
+        var b1=Number(b.value);
+        switch (val.value){
+            case "+" :
+                res.value=math.jia(a1,b1);
+                break;
+            case "-" :
+                res.value=math.jian(a1,b1);
+                break;
+            case "×" :
+                res.value=math.cheng(a1,b1);
+                break;
+            case "÷" :
+                res.value=math.chu(a1,b1);
+                break;
+            case "%" :
+                res.value=math.chu(a1,b1);
+                break;
+        }
+    }
+</script>
+</body>
+</html>
