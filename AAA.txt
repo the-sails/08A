@@ -1,1 +1,2 @@
 AAAAAA
+用于vsCode进行第一次git提交；
